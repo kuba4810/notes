@@ -1,0 +1,57 @@
+/* Letter spacing */
+/* ------------------------------------------- */
+
+.letter-spacing-2{
+    letter-spacing: 5px;
+}
+
+.letter-spacing-5{
+    letter-spacing: 5px;
+}
+
+.letter-spacing-7{
+    letter-spacing: 5px;
+}
+
+.letter-spacing-9{
+    letter-spacing: 5px;
+}
+
+/* Height */
+/* ------------------------------------------- */
+.height-5{
+    height: 5vh;
+}
+.height-10{
+    height: 10vh;
+}
+.height-20{
+    height: 20vh;
+}
+.height-75{
+    height: 75vh;
+}
+.height-80{
+    height: 80vh;
+}
+.height-50{
+    height: 50vh;
+}
+.height-100{
+    height: 100vh;
+}
+
+/* Colors */
+/* ------------------------------------------- */
+
+.f-color-cornsilk{
+    color : cornsilk;
+}
+
+/* Display flex */
+
+.flex-center{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
