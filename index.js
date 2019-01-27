@@ -26,6 +26,7 @@ app.use(bodyParser.json());
 // Routes
 // -----------------------------------------------------------
 require('./routes/user')(app);
+require('./routes/notes')(app);
 
 // Start application
 // -----------------------------------------------------------

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+
+import MainHeader from './MainHeader';
 class Main extends Component {
     state = { 
         login : '',
@@ -8,25 +11,23 @@ class Main extends Component {
         return ( <div>
 
             {/* Container */}
-            <div className="container-fluid bg-dark height-100 overflow-hidden">
+            <div className="container-fluid bg-dark height-100  overflow-hidden ">
               {/* Header */}
-              <div className="row bg-warning f-color-cornsilk height-15">
-                 <div className="col-10 m-auto text-center">
-                     <h1 className="letter-spacing-5">  Notatki na każdy dzień </h1>
-                      <h3> Zaplanuj swoje zadania</h3>
-                      <hr/>
-                 </div>
-              </div>
+              <MainHeader />
               {/* Main */}
-              <div className="row bg-dark f-color-cornsilk height-80">
+              <div className="row mainPageContainer f-color-cornsilk">
     
+                  <div className="mainPageContent">
+                      {/* <h1 className="letter-spacing-5  text-center w-100">
+                         <i class="fas fa-sticky-note"></i> Notes
+                      </h1> */}
                   {/* LogIn form */}
-                  <div className="col-4 mr-auto ml-auto mt-5">
-                     <form>
+                  <div className="col-4 mr-auto ml-auto f-color-dark">
+                     <form className="bg-light  p-5">
                         <h2 >Zaloguj się !</h2>
-                        <hr className="bg-light"/>
-                        <div className="form-group">
-                           <label htmlFor="login">Login lub mail</label>
+                        <hr className="bg-dark"/>
+                        <div className="form-group ">
+                           <label htmlFor="login">Login lub adres e-mail</label>
                            <input type="text" name="login" className="form-control"/>
                         </div>
     
@@ -36,15 +37,16 @@ class Main extends Component {
                         </div>
     
                         <div className="form-group">
-                           <div className="btn btn-success form-control">Zaloguj</div>
+                           <div className="btn  btn-warning form-control">Zaloguj</div>
                         </div>                
     
                      </form>
                   </div>
+                  </div>
     
               </div>
               {/* Footer */}
-              <div className="row flex-center bg-secondary f-color-cornsilk height-5 text-center">  
+              <div className="row footer flex-center f-color-cornsilk text-center">  
                 Copyright &copy; 2019 Jakub Kozioł
               </div>
             </div>
