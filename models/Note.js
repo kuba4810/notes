@@ -5,7 +5,9 @@ const noteSchema = new Schema({
     userId : String,
     title : String,
     content : String,
-    creationDate : String
+    creationDate : String,
+    type : String,
+    color: String
 });
 
 const NoteModel = mongoose.model('notes',noteSchema);
