@@ -23,7 +23,11 @@
     height: 5vh;
 }
 .height-10{
-    height: 10vh;
+    min-height: 10vh;
+}
+
+.height-15{
+    height:15vh;
 }
 .height-20{
     height: 20vh;
@@ -48,10 +52,43 @@
     color : cornsilk;
 }
 
+.f-color-dark{
+    color: #262626;
+}
+
+/* Background colors */
+.bgc-a-light{
+    background-color: rgba(255,255,255,0.7);
+}
+/* ------------------------------------------- */
 /* Display flex */
+/* ------------------------------------------- */
 
 .flex-center{
     display:flex;
     justify-content: center;
     align-items:center;
+}
+
+.flex-a-center{
+    display:flex;
+    align-items:center;
+}
+
+.flex-j-center{
+    display:flex;
+    justify-content:center;
+}
+
+/* Border radius */
+.radius-5{
+    border-radius : 5px;
+}
+
+.radius-10{
+    border-radius : 10px;
+}
+
+.radius-15{
+    border-radius : 15px;
 }

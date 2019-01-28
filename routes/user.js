@@ -1,4 +1,5 @@
 const userDAO = require('../dao/userDAO');
+
 module.exports = (app) => {
 
     // Register
