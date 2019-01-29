@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { log } from 'util';
 class MainHeader extends Component {
     state = {}
+
+    logout = () =>{
+        localStorage.removeItem('id');
+    }
     render() {
+        console.log(localStorage.getItem('id'));
+
         return (
             <div className="row main-header bg-warning f-color-cornsilk">
                 {/* Logo */}
@@ -18,9 +25,22 @@ class MainHeader extends Component {
                 </div>
 
                 {/* Buttons */}
+
                 <div className="col-5 flex-a-center">
-                    <Link to={'/logowanie'}> Zaloguj </Link>
-                    <Link to={'/rejestracja'}> Zarejestruj </Link>
+                    {
+                        !localStorage.getItem('id') &&
+                        < div >
+                            <Link to={'/logowanie'}> Zaloguj </Link>
+                            <Link to={'/rejestracja'}> Zarejestruj </Link>
+                        </div>
+                     }
+                     {
+                           localStorage.getItem('id') &&
+                           <Link to={'/'} onClick={this.logout}> 
+                                Wyloguj
+                           </Link>
+                     }
+
                 </div>
             </div>
         );

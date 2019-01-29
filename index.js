@@ -9,11 +9,14 @@ const bodyParser = require('body-parser');
 
 // Connection with MongoDB
 // -----------------------------------------------------------
-mongoose.connect(keys.mongoURI,{useNewUrlParser: true, useCreateIndex: true},(err)=>{
-    if(!err){
+mongoose.connect(keys.mongoURI, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+}, (err) => {
+    if (!err) {
         console.log('Connection with database established...');
     } else {
-        console.log(err);        
+        console.log(err);
     }
 });
 
@@ -22,6 +25,10 @@ mongoose.connect(keys.mongoURI,{useNewUrlParser: true, useCreateIndex: true},(er
 app.use(express.static('./client/notes/build'));
 app.use(cors());
 app.use(bodyParser.json());
+const path = require('path');
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname,'client', 'notes','build', 'index.html'));
+});
 
 // Routes
 // -----------------------------------------------------------
@@ -31,6 +38,6 @@ require('./routes/notes')(app);
 // Start application
 // -----------------------------------------------------------
 const PORT = process.env.PORT || 8080;
-app.listen(PORT,()=>{
-    console.log(`Server listening on port ${PORT}`);    
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
 });

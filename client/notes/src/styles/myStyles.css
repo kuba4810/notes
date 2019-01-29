@@ -92,3 +92,24 @@
 .radius-15{
     border-radius : 15px;
 }
+
+/* Animations */
+
+.a-d-1{
+    animation-duration: .1s;
+}
+.a-d-2{
+    animation-duration: .2s;
+}
+
+.a-d-3{
+    animation-duration: .3s;
+}
+
+.a-d-4{
+    animation-duration: .4s;
+}
+
+.a-d-5{
+    animation-duration: .5s;
+}

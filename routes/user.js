@@ -1,4 +1,5 @@
 const userDAO = require('../dao/userDAO');
+const mailSender = require('../services/mail');
 
 module.exports = (app) => {
 
@@ -34,6 +35,9 @@ module.exports = (app) => {
             // Create new user if login and mail are available
             if (login && mail) {
                 user = await userDAO.createNew(request.body);
+
+                mailSender.sendMail(user);
+
                 if (user) {
                     response.send({
                         response: 'success',
@@ -54,14 +58,24 @@ module.exports = (app) => {
     // Log In
     // -----------------------------------------------------------
     app.post('/api/login', async (request, response) => {
+        
         let login = request.body.login;
         let password = request.body.password;
         try {
             const user = await userDAO.findUser(login, password);
-            response.send({
-                response: 'success',
-                user: user
-            });
+            if(user){
+                response.send({
+                    response: 'success',
+                    user: user
+                });
+            }
+            else{
+                response.send({
+                    response: 'failed',
+                    user: user
+                });
+            }
+           
         } catch (err) {
             console.log(err);
             response.send({

@@ -1,6 +1,7 @@
 .mainPageContainer{
     background-image : url('../images/mainPageBackground.gif');
     min-height: 87vh;
+    background-attachment: fixed;
 }
 
 
@@ -62,12 +63,16 @@
     background-color: rgba(252, 190, 3,0.7);
 }
 
-.mainPageContent .col-4{
+.mainPageContent .loginCol, .registerCol{
     margin-top : 100px;
 }
 
-.mainPageContent form{
+.mainPageContent form.registerForm, form.loginForm{
     box-shadow: 1px 1px 15px 0px #595959;
+}
+
+.beginButton{
+
 }
 
 /* Footer */
@@ -77,4 +82,44 @@
     background-color: #151515;
 }
 
+
+/* Welcome page */
+
+.welcomePage h1{
+    font-size: 50px;
+}
+
+h1.hlogo{
+    font-size: 70px;
+}
+
+.welcomePage a{
+    color: #262626;
+    font-size: 17px;
+    border : 2px solid #fff;
+    padding: 10px 20px;
+    border-radius : 8px;
+    background-color: #fff;
+    width: 200px;
+    text-align: center;
+
+}
+
+.welcomeSection{
+    background-image: url('../images/mainSectionBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height:90vh;
+    width:70%;
+    margin-top: 30px;
+    margin-left:auto;
+    margin-right:auto;
+   
+}
+
+.betweenSection{
+    min-height:50vh;
+    background-color: rgba(255,255,255,0.8);
+}
 
