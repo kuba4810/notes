@@ -121,11 +121,14 @@ class RegisterComponent extends Component {
                                     </div>
                                 </div>
 
-                                <div className="form-group text-center">
-                                    <label>
-                                        {this.state.registerMessage}
-                                    </label>
-                                </div>
+                                {
+                                    this.state.registerMessage.length > 0 && 
+                                    <div className="form-group text-center">
+                                        <label>
+                                             {this.state.registerMessage}
+                                        </label>
+                                    </div>
+                                }
 
                             </form>
                         </div>

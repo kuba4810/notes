@@ -66,7 +66,7 @@
     margin-top : 100px;
 }
 
-.mainPageContent form.registerForm, form.loginForm{
+.mainPageContent form.registerForm, form.loginForm, form.resetForm{
     box-shadow: 1px 1px 15px 0px #595959;
 }
 

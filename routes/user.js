@@ -58,24 +58,23 @@ module.exports = (app) => {
     // Log In
     // -----------------------------------------------------------
     app.post('/api/login', async (request, response) => {
-        
+
         let login = request.body.login;
         let password = request.body.password;
         try {
             const user = await userDAO.findUser(login, password);
-            if(user){
+            if (user) {
                 response.send({
                     response: 'success',
                     user: user
                 });
-            }
-            else{
+            } else {
                 response.send({
                     response: 'failed',
                     user: user
                 });
             }
-           
+
         } catch (err) {
             console.log(err);
             response.send({
@@ -85,5 +84,41 @@ module.exports = (app) => {
         }
     });
 
-    
+    // Reset password
+    // -----------------------------------------------------------
+    app.post('/api/reset-password', async (request, response) => {
+        console.log('Reset password : ', request.body);
+
+        try {
+            // Find user by mail
+            const mail_confirmed = await userDAO.isMailConfirmed(request.body.mail);
+
+            if (!mail_confirmed) {
+                response.send({
+                    response: 'failed',
+                    message: 'Adres jest nie potwierdzony ! Na Twój adres został wysłany link aktywacyjny.'
+                })
+            } else {
+                // Generate code
+                const code = await userDAO.generateCode(request.body.mail);
+                console.log(code);
+                
+                // Send mail
+                const mail_result = await mailSender.sendResetCode({code : code.code,mail : request.body.mail});
+
+                response.send({
+                    response: 'success',
+                    message: 'Na podany adres wysłano link do zmiany hasła.'
+                })
+
+            }
+        } catch (error) {
+            console.log(error);
+
+            response.send({
+                response: 'server-failed'
+            })
+        }
+    });
+
 }
