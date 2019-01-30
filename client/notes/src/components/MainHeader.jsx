@@ -11,7 +11,7 @@ class MainHeader extends Component {
         console.log(localStorage.getItem('id'));
 
         return (
-            <div className="row main-header bg-warning f-color-cornsilk">
+            <div className="row main-header  f-color-cornsilk">
                 {/* Logo */}
                 <div className="col-7">
                     <Link class="linkToMainPage" to={'/'}>

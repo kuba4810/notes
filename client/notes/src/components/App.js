@@ -7,6 +7,8 @@ import LoginContainer from './Login/LoginContainer';
 import RegisterComponent from './Register/RegisterComponent';
 import Main from './Main.jsx';
 import NotesContainer from './Notes/NotesContainer';
+import SheduleContainer from './Shedule/SheduleContainer';
+import ProfileContainer from './Profile/ProfileContainer';
 import Footer from './Footer';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -23,13 +25,15 @@ class App extends Component {
                 <MainHeader />
                 
                 {/* Main */}
-                <div  className="container-fluid bg-dark">
+                <div  className="container-fluid">
 
                             {/* Routing */}
                             <Route   exact path="/" component={Main} />
                             <Route   path="/logowanie" component={LoginContainer} />    
                             <Route   path="/rejestracja" component={RegisterComponent} />
                             <Route   path ="/notatki" component ={NotesContainer} />
+                            <Route   path ="/harmonogram" component ={SheduleContainer} />
+                            <Route   path ="/profil" component ={ProfileContainer} />
                             {/* ------------------------------------------------- */}
 
                           </div>
