@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router as Router, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import history from '../services/history';
 
 import MainHeader from './MainHeader';
@@ -10,6 +10,7 @@ import NotesContainer from './Notes/NotesContainer';
 import SheduleContainer from './Shedule/SheduleContainer';
 import ProfileContainer from './Profile/ProfileContainer';
 import PasswordReset from './PasswordReset/PasswordReset';
+import ChangePassword from './ChangePassword/ChangePassword';
 import Footer from './Footer';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -36,6 +37,7 @@ class App extends Component {
                             <Route   path ="/harmonogram" component ={SheduleContainer} />
                             <Route   path ="/profil" component ={ProfileContainer} />
                             <Route   path="/reset" component={PasswordReset}/>
+                            <Route   path="/nowe-haslo/:code" component={ChangePassword}/>
                             {/* ------------------------------------------------- */}
 
                           </div>

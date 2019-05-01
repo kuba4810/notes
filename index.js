@@ -17,7 +17,7 @@ mongoose.connect(keys.mongoURI, {
         console.log('Connection with database established...');
     } else {
         console.log(err);
-    }
+    }cd
 });
 
 // Settings
@@ -25,15 +25,14 @@ mongoose.connect(keys.mongoURI, {
 app.use(express.static('./client/notes/build'));
 app.use(cors());
 app.use(bodyParser.json());
-const path = require('path');
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname,'client', 'notes','build', 'index.html'));
-});
+
+
 
 // Routes
 // -----------------------------------------------------------
 require('./routes/user')(app);
 require('./routes/notes')(app);
+require('./routes/static')(app);
 
 // Start application
 // -----------------------------------------------------------

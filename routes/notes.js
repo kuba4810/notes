@@ -6,7 +6,9 @@ module.exports = (app) => {
     // Create new note
     // ------------------------------------------
 
-    app.post('/api/notes', async (request, response) => {
+    app.post('/api/note', async (request, response) => {
+        console.log(request.body);
+
         try {
             let note = await noteDAO.createNew(request.body);
             if (note) {
@@ -28,16 +30,16 @@ module.exports = (app) => {
     // Get all notes for user specified by id
     // ------------------------------------------
     app.get('/api/notes/:userId', async (request, response) => {
+        console.log('Get all notes...')
 
         try {
             let notes = await noteDAO.findAllByUserId(request.params.userId);
 
-            if (notes) {
-                response.send({
-                    response: 'success',
-                    notes: notes
-                })
-            }
+            response.send({
+                response: 'success',
+                notes: notes
+            })
+
         } catch (err) {
             console.log(err);
             response.send({
@@ -50,7 +52,7 @@ module.exports = (app) => {
 
     // Get note by noteId
     // ------------------------------------------
-    app.get('/api/note/:noteId', async (request, response) =>{
+    app.get('/api/note/:noteId', async (request, response) => {
         try {
             let note = await noteDAO.findNoteById(request.params.noteId);
 
@@ -70,9 +72,9 @@ module.exports = (app) => {
 
     // Delete note
     // ------------------------------------------
-    app.delete('/api/note',async (request,response)=>{
-        try{
-            let note = await noteDAO.deleteNote(request.body.noteId);
+    app.delete('/api/note/:note_id', async (request, response) => {
+        try {
+            let note = await noteDAO.deleteNote(request.params.note_id);
 
             if (note) {
                 response.send({
@@ -80,8 +82,69 @@ module.exports = (app) => {
                     note: note
                 })
             }
-        }catch(err){
+        } catch (err) {
             console.log(err);
+            response.send({
+                response: 'failed'
+            })
+        }
+    });
+
+    // Archive note
+    // ------------------------------------------
+    app.post('/api/note/archive/:note_id', async (request, response) => {
+        try {
+            let note = await noteDAO.archiveNote(request.params.note_id);
+
+            if (note) {
+                response.send({
+                    response: 'success',
+                    note: note
+                })
+            }
+        } catch (err) {
+            console.log(err);
+            response.send({
+                response: 'failed'
+            })
+        }
+    });
+
+    // Restore note
+    // ------------------------------------------
+    app.post('/api/note/restore/:note_id', async (request, response) => {
+        try {
+            let note = await noteDAO.restoreNote(request.params.note_id);
+
+            if (note) {
+                response.send({
+                    response: 'success',
+                    note: note
+                })
+            }
+        } catch (err) {
+            console.log(err);
+            response.send({
+                response: 'failed'
+            })
+        }
+    });
+
+    // Update note
+    // ------------------------------------------
+    app.put('/api/note', async (request, response) => {
+
+        try {
+            let note = await noteDAO.updateNote(request.body);
+
+            if (note) {
+                response.send({
+                    response: 'success',
+                    note: note
+                })
+            }
+        } catch (error) {
+            console.log(error);
             response.send({
                 response: 'failed'
             })

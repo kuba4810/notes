@@ -6,8 +6,10 @@ const noteSchema = new Schema({
     title : String,
     content : String,
     creationDate : String,
-    type : String,
-    color: String
+    color : String,
+    label: String,
+    tasks : Array,
+    state : {type :String, default : 'active'}
 });
 
 const NoteModel = mongoose.model('notes',noteSchema);

@@ -2,7 +2,7 @@
 /* ------------------------------------------- */
 
 .letter-spacing-2{
-    letter-spacing: 5px;
+    letter-spacing: 2px;
 }
 
 .letter-spacing-5{
@@ -10,15 +10,19 @@
 }
 
 .letter-spacing-7{
-    letter-spacing: 5px;
+    letter-spacing: 7px;
 }
 
 .letter-spacing-9{
-    letter-spacing: 5px;
+    letter-spacing: 9px;
 }
 
 /* Height */
 /* ------------------------------------------- */
+.height-3{
+    height: 5vh;
+}
+
 .height-5{
     height: 5vh;
 }
@@ -49,6 +53,9 @@
     height: 100vh;
 }
 
+.width-90{
+    min-width:90%;
+}
 .width-100{
     min-width:100%;
 }
@@ -68,6 +75,31 @@
 .bgc-a-light{
     background-color: rgba(255,255,255,0.7);
 }
+
+/* Font size */
+/* ------------------------------------------- */
+.f-size-18{
+    font-size : 18px;
+}
+
+.f-size-20{
+    font-size : 20px;
+}
+
+.f-size-21{
+    font-size : 21px;
+}
+
+.f-size-22{
+    font-size : 22px;
+}
+
+.f-size-25{
+    font-size : 25px;
+}
+
+
+
 /* ------------------------------------------- */
 /* Display flex */
 /* ------------------------------------------- */
@@ -120,4 +152,16 @@
 
 .a-d-5{
     animation-duration: .5s;
+}
+
+/* Cursor */
+.cursor-pointer{
+    cursor : pointer;
+}
+
+
+/* Position */
+
+.bottom-5{
+    bottom:5px;
 }

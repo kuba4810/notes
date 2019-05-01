@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import history from '../../services/history';
 import { Link } from 'react-router-dom';
-class LoginContainer extends Component {
+import { connect } from 'react-redux';
+import {labelsFetched} from '../../actions/user'
+
+class Login extends Component {
     state = {
         login: '',
         password: '',
@@ -57,6 +60,7 @@ class LoginContainer extends Component {
                     loginMessage: 'Logowanie przebiegło pomyślnie !'
                 });
                 localStorage.setItem('id', response.user._id);
+                this.props.labelsFetched(response.user.labels);
                 history.push('/notatki');
 
 
@@ -84,7 +88,7 @@ class LoginContainer extends Component {
                             <h1 className="hlogo text-center w-100"><i class="fas fa-calendar-check"></i></h1>
                         </div>
 
-                        <div className="col-4 loginCol mr-auto ml-auto f-color-dark a-n-5 mt-4">
+                        <div className="col-lg-4 col-md-8 col-sm-10 loginCol mr-auto ml-auto f-color-dark a-n-5 mt-4">
                             <form className="bg-light p-5 loginForm">
                                 {/* Form header */}
                                 <h2 >Zaloguj się !</h2>
@@ -148,5 +152,14 @@ class LoginContainer extends Component {
         );
     }
 }
+
+const mapDispatchToProps = { labelsFetched };
+const mapStateToProps = state => {
+    return {
+        labels: state.user.labels
+    };
+}
+
+const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login);
 
 export default LoginContainer;

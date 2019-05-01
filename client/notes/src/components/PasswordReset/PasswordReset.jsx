@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import history from '../../services/history';
 class PasswordReset extends Component {
     state = {
         mail: '',
@@ -13,6 +14,12 @@ class PasswordReset extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+    }
+
+    componentWillMount(){
+        if(localStorage.getItem('id')){
+            history.push('/notatki');
+        }
     }
 
     // Send form
@@ -89,7 +96,7 @@ class PasswordReset extends Component {
                     </div>
 
                     {/* Form */}
-                    <div className="col-5 mr-auto ml-auto mt-4 animated fadeIn">
+                    <div className="col-lg-5 col-md-8 col-sm-10 mr-auto ml-auto mt-4 animated fadeIn">
 
                         <form action="javascript:void(0);" className="bg-light p-5 resetForm">
 

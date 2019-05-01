@@ -8,7 +8,7 @@ module.exports = data => {
                     <div style="padding:16px 8px; background-color:white; text-align:center;">
                     <h2> Ten list został wysłany ponieważ chcesz zresetować swoje hasło ! </h2>
                     <h3>Kliknij w poniższy link aby zmienić hasło </h3>
-                    <a href="http://localhost:8080/reset/${data.code}" target="blank" style="text-decoration:none;"> 
+                    <a href="http://localhost:8080/nowe-haslo/${data.code}" target="blank" style="text-decoration:none;"> 
                         Zmień hasło
                     </a> <br />
                     <br /><br />

@@ -5,7 +5,8 @@ const userSchema = new Schema({
     mail : String,
     login : String,
     password : String,
-    mail_confirmed : false
+    mail_confirmed : false,
+    labels : []
 });
 
 const UserModel = mongoose.model('users',userSchema);

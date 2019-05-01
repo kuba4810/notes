@@ -82,7 +82,7 @@ class RegisterComponent extends Component {
             <div className="row mainPageContainer f-color-cornsilk">
                 <div className="mainPageContent">
                     <div className="animated fadeIn">
-                        <div className="col-12 mt-2 mb-0">
+                        <div className="col-lg-4 col-md-8 col-sm-10 mt-2 mb-0 ml-auto mr-auto">
                             <h1 className="hlogo text-center w-100"><i class="fas fa-calendar-check"></i></h1>
                         </div>
 

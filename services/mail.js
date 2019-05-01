@@ -1,6 +1,8 @@
 const mailTemplate = require('./emailTemplates/registerTemplate');
-const registerTemplate = require('./emailTemplates/resetPasswordTemplate');
+const resetTemplate = require('./emailTemplates/resetPasswordTemplate');
+
 const nodemailer = require('nodemailer');
+
 const keys = require('../config/keys');
 
 
@@ -36,14 +38,14 @@ async function sendMail(user) {
   });
 }
 
-// Send reset code
+// Send reset code E-mail
 // ----------------------------------------------
 async function sendResetCode(data) {
   var mailOptions = {
     from: 'Twoje notatki',
     to: data.mail,
     subject: 'Resetowanie hasła',
-    html: registerTemplate(data)
+    html: resetTemplate(data)
   };
 
   return Promise.resolve().then(()=>{

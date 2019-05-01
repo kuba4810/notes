@@ -6,7 +6,7 @@ class Header extends Component {
         return (
             <div className="row">
 
-                <div className="col-12 menu bg-dark f-color-cornsilk text-left d-flex ">
+                <div className="col-12 menu f-color-cornsilk text-left d-flex ">
 
                     <Link to={'/notatki'} className="f-color-cornsilk pr-5 flex-a-center">
                         <i class="fas fa-sticky-note mr-2"></i> Notatki

@@ -1,0 +1,5 @@
+1.) DAO - zmienianie type notatki
+2.) Route - do zmiany typu notatki
+3.) Po klikniêciu gdy jest w g³ównej - przenieœ do kosza czyli odpal route do zmiany typu
+4.) Jeœli w koszu to usuñ
+5.) Wyœwietlanie - modyfikacja listy
