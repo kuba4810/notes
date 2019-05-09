@@ -17,7 +17,7 @@ mongoose.connect(keys.mongoURI, {
         console.log('Connection with database established...');
     } else {
         console.log(err);
-    }cd
+    }
 });
 
 // Settings
@@ -36,7 +36,7 @@ require('./routes/static')(app);
 
 // Start application
 // -----------------------------------------------------------
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
