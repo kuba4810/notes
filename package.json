@@ -8,9 +8,14 @@
     "npm" : "5.0.3"
   },
   "scripts": {
-    "start" : "node index.js"
-
-  },
+    "ng": "ng",
+    "start": "node server.js",
+    "build": "ng build --prod",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://kuba481@bitbucket.org/kuba481/notes.git"
