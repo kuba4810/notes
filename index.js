@@ -37,6 +37,6 @@ require('./routes/static')(app);
 // Start application
 // -----------------------------------------------------------
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+app.listen((process.env.PORT || 5000), () => {
     console.log(`Server listening on port ${PORT}`);
 });
