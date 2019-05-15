@@ -92,7 +92,7 @@ class Container extends Component {
 
                         <h5>Menu</h5>
                         <hr className="bg-light" />
-                        <ul className="mr-auto ml-auto">
+                        <ul className="mr-auto ml-auto notesMenuUl">
 
                             <li onClick={this.props.currentLabelChanged.bind(null,"")}>
                                 <NavLink to={'/notatki'}exact activeClassName="activeNavLink" >

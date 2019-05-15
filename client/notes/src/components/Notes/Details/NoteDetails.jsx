@@ -119,6 +119,7 @@ class NoteDetails extends React.Component {
         let note = '';
         let color = '#fff';
         let labels = '';
+        let tasks = "";
 
 
         if (typeof (this.props.note) !== 'undefined') {
@@ -182,24 +183,41 @@ class NoteDetails extends React.Component {
                         </div>}
                 </div>
 
+
+
             </div>
             // ----------------------------------------------------------------
 
             // Labels
             // ----------------------------------------------------------------
             if (data.label.length > 0) {
-                let bgColor = colorMoreDark(data.color,2);
+                let bgColor = colorMoreDark(data.color, 2);
                 labels = data.label.split(',');
                 labels = labels.map(l => (
                     <div className=" single-label text-dark radius-15 p-2 mr-1 text-center"
-                    style={{backgroundColor : bgColor}}> 
-                   {l} 
-               </div>
+                        style={{ backgroundColor: bgColor }}>
+                        {l}
+                    </div>
                 ))
-                console.log('Etykiety : ',labels);
-                
-    
+                console.log('Etykiety : ', labels);
+
+
             }
+            // ----------------------------------------------------------------
+
+            // Tasks
+            // ----------------------------------------------------------------
+
+            if (data.tasks.length > 0) {
+                tasks = data.tasks.map((task, index) => (
+                    <div className=" tasks d-flex align-items-center">
+                        <input className="mr-2 " type="checkbox" name="" id="" />
+                        <input type="text" className="form-control" value={task.name} />
+                        <i className="fas fa-times text-danger"></i>
+                    </div>
+                ))
+            }
+
             // ----------------------------------------------------------------
         }
 
@@ -220,7 +238,12 @@ class NoteDetails extends React.Component {
                         {/* #1 Note content */}
                         {note}
 
-                        {labels}
+                        {/* Tasks */}
+                        {tasks}
+
+                        <div className="mt-2">
+                            {labels}
+                        </div>
 
                     </div>
                 </div>

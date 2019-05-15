@@ -4,8 +4,8 @@ const noteModel = require('../models/Note');
 // ----------------------------------------------
 async function createNew(note){
 
-    let array = note.tasks.split(',');
-    note.tasks = array;
+    // let array = note.tasks.split(',');
+    // note.tasks = array;
 
     return Promise.resolve().then(()=>{
         return noteModel(note).save();

@@ -17,6 +17,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/myStyles.css'
 import '../styles/mainStyles.css'
 import '../styles/animations.css'
+import '../styles/shedule.css'
 class App extends Component {
   render() {
     return (
@@ -27,7 +28,7 @@ class App extends Component {
                 <MainHeader />
                 
                 {/* Main */}
-                <div  className="container-fluid">
+                <div  className="container-fluid p-0">
 
                             {/* Routing */}
                             <Route   exact path="/" component={Main} />

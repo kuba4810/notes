@@ -14,7 +14,10 @@ const state = {
     name: '',
     labels: [],
     tasks: [],
-    labelsPrompt : ['Zakupy','Sprzątanie']
+    taskName : '',
+    tasksEditingMode :false,
+    labelsPrompt: ['Zakupy', 'Sprzątanie'],
+    
 }
 
 class Note extends Component {
@@ -28,13 +31,15 @@ class Note extends Component {
         name: '',
         labels: [],
         tasks: [],
-        labelsPrompt : ['Zakupy','Sprzątanie']
+        labelsPrompt: ['Zakupy', 'Sprzątanie']
     }
 
     handleChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+        
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+        
     }
     // Set note color
     handleChangeComplete = (color) => {
@@ -89,13 +94,13 @@ class Note extends Component {
             colorPicker: 'hidden',
             label: 'visible',
             name: ''
-            
+
         })
     }
 
     hideLabelForm = () => {
 
-        
+
 
         this.setState({
             label: 'hidden'
@@ -103,8 +108,11 @@ class Note extends Component {
 
         if (this.state.name.length > 0) {
             let labels = this.state.labels;
+            if(!this.state.labels.find((el)=>{
+                return el === this.state.name
+            })){
             labels.push(this.state.name);
-
+            }
             this.setState({
                 labels: [...labels]
             }, () => {
@@ -140,6 +148,27 @@ class Note extends Component {
     }
     // ---------------------------------------------------------------
 
+    addLabel = (e) => {
+
+        console.log('CheckBox : ', e.target.value)
+
+        let labels = this.state.labels;
+
+        if (e.target.checked) {
+
+            labels.push(e.target.value)
+
+            this.setState({
+                labels
+            })
+        } else {
+            labels = labels.filter(label => (label !== e.target.value))
+
+            this.setState({
+                labels
+            })
+        }
+    }
     createNote = async () => {
         // Prepare data object
         let s = this.state;
@@ -150,7 +179,7 @@ class Note extends Component {
             creationDate: '2019-02-01,20:00',
             color: s.color,
             label: s.labels.join(','),
-            tasks: s.tasks.join(','),
+            tasks: s.tasks
         }
 
 
@@ -189,15 +218,74 @@ class Note extends Component {
 
         }
     }
+
+    deleteTask = (id) =>{
+
+        let tasks = this.state.tasks.filter(task => (task.id !== id));
+
+        this.setState({
+            tasks
+        })
+
+
+    }
+
+    newTask = () =>{
+        let task = {
+            id : new Date().getTime(),
+            name : this.state.taskName,
+            done : false
+        }
+
+        let tasks = this.state.tasks;
+
+        tasks.push(task);
+
+        this.setState({
+            tasks,
+            taskName : ''
+        },()=>{
+            console.log(this.state);
+        })
+    }
+    addTasks = () =>{
+        this.setState({
+            tasksEditingMode : !this.state.tasksEditingMode
+        })
+    }
     render() {
+
+        let tasks = this.state.tasks.map( (task,index)=>( 
+            <div className=" tasks d-flex align-items-center mt-1">
+                <input className="mr-2 " type="checkbox" name="" id=""/>
+                <span className="form-control">
+                    {task.name}
+                </span>   
+                <i className="fas fa-times" onClick={this.deleteTask.bind(this,task.id)}></i>
+            </div>
+         ))
 
         let labels = this.state.labels.map(l => (<div className="bg-secondary single-label radius-15 p-2 mr-1 text-center"> {l} </div>))
 
-        let labelsPromptList = this.state.labelsPrompt.map( label => (
-            <li>
-                {label}
-            </li>
-        ))
+        let labelsPromptList = this.props.labels.map(label => {
+
+            if (this.state.labels.find((element)=>{
+                return element === label.title
+            }) ){
+
+                return (
+                    <li className="labelCheck">
+                        <input type="checkbox" name="" value={label.title} checked onClick={this.addLabel} /> {label.title}
+                    </li>
+                ) 
+            }else {
+                return (<li className="labelCheck">
+                    <input type="checkbox" name="" value={label.title}  onClick={this.addLabel} /> {label.title}
+                </li>)
+            }
+
+
+        })
 
         return (
             <div className="position-relative " id="newNote" >
@@ -248,11 +336,30 @@ class Note extends Component {
 
                                 {/* Labels list */}
 
-                                <div className="form-group">
+                                <div className="form-group ">
                                     {labels}
                                 </div>
 
                             </div>
+
+                            <div className="form-group mb-2">
+                                {tasks}
+                            </div>
+
+                            {
+                                this.state.tasksEditingMode &&
+                                <div className="form-group mb-3">
+
+                                    <div className="d-flex align-items-center w-100 newTask">
+                                        <i className="fas fa-plus"></i>
+                                        <input className="form-control" type="text" name="taskName" onChange={this.handleChange}
+                                        placeholder="Nazwa zadania" value={this.state.taskName}/>
+                                        <i className="fas fa-check" onClick={this.newTask}></i>
+
+                                    </div>
+                                
+                                </div>
+                            }
 
                             <div className="form-group">
 
@@ -266,6 +373,14 @@ class Note extends Component {
                                                 onClick={this.showColorPicker}></i>
                                             <span class="tooltiptext">Zmień kolor</span>
                                         </div>
+
+                                        <div class="tip">
+                                            <i class="fas fa-check-square ml-2 f-size-21"
+                                                onClick={this.addTasks}></i>
+                                            <span class="tooltiptext">Dodaj zadania</span>
+                                        </div>
+
+
 
 
                                         {/* Color picker */}
@@ -357,12 +472,16 @@ class Note extends Component {
                                                     onChange={this.handleChange} />
                                                 <i class="fas fa-check mr-2 " onClick={this.hideLabelForm}></i>
 
+                                                <ul className="labelPromptList">
+                                                    {labelsPromptList}
+                                                </ul>
+
                                                 {/* Labels prompt list */}
-                                                <div className="labelPrompt position-absolute text-dark">
+                                                {/* <div className="labelPrompt position-absolute text-dark">
                                                     <ul className="labelPromptList">
                                                         {labelsPromptList}
                                                     </ul>
-                                                </div>
+                                                </div> */}
                                             </form>
                                         </div>
 
@@ -400,7 +519,8 @@ class Note extends Component {
 const mapDispatchtoProps = { noteAdded };
 const mapStateToProps = state => {
     return {
-        notes: state.notes
+        notes: state.notes,
+        labels: state.user.labels
     };
 };
 

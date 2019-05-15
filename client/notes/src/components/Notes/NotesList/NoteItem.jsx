@@ -144,8 +144,19 @@ class NoteItem extends Component {
 
                     {/* Content */}
                     <p className="contentP overflow-hidden">
-                        {note.content.slice(0, 50)}...
+                        {
+                            note.content.length > 0 ?
+                            note.content.slice(0, 50) :
+                            note.content
+                        }
                     </p>
+
+
+                    {
+                        note.tasks.length > 0 ?
+                        <p>Lista <i className="fas fa-check-square"></i></p> :
+                        <p></p>
+                    }
 
 
 
