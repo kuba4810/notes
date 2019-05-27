@@ -183,7 +183,7 @@ class NoteDetails extends React.Component {
                         </div>}
                 </div>
 
-
+               
 
             </div>
             // ----------------------------------------------------------------
@@ -212,53 +212,53 @@ class NoteDetails extends React.Component {
                 tasks = data.tasks.map((task, index) => (
                     <div className=" tasks d-flex align-items-center">
                         <input className="mr-2 " type="checkbox" name="" id="" />
-                        <input type="text" className="form-control" value={task.name} />
+                        <input type="text" className="form-control" value={task.name}/>
                         <i className="fas fa-times text-danger"></i>
                     </div>
                 ))
             }
 
-            // ----------------------------------------------------------------
-        }
+                // ----------------------------------------------------------------
+            }
 
 
-        return (
-            <div className="noteDetails animated fadeOut d-none">
-                <div className="row h-100 d-flex align-items-center">
-                    {/* Col 9 */}
-                    <div className="col-lg-6 col-md-8 col-sm-10 h-50 mr-auto ml-auto noteDetailsContent animated zoomIn "
-                        style={{ 'background-color': color }}>
+            return (
+                <div className="noteDetails animated fadeOut d-none">
+                    <div className="row h-100 d-flex align-items-center">
+                        {/* Col 9 */}
+                        <div className="col-lg-6 col-md-8 col-sm-10 h-50 mr-auto ml-auto noteDetailsContent animated zoomIn "
+                            style={{ 'background-color': color }}>
 
-                        {/* Header */}
-                        <div className="d-flex justify-content-end p-2">
-                            <i className="fas fa-times f-size-20 cursor-pointer text-dark"
-                                onClick={this.hideDetails}></i>
+                            {/* Header */}
+                            <div className="d-flex justify-content-end p-2">
+                                <i className="fas fa-times f-size-20 cursor-pointer text-dark"
+                                    onClick={this.hideDetails}></i>
+                            </div>
+
+                            {/* #1 Note content */}
+                            {note}
+
+                             {/* Tasks */}
+                             {tasks}
+
+                            <div className="mt-2">
+                             {labels}
+                            </div>
+
                         </div>
-
-                        {/* #1 Note content */}
-                        {note}
-
-                        {/* Tasks */}
-                        {tasks}
-
-                        <div className="mt-2">
-                            {labels}
-                        </div>
-
                     </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
-}
 
-const mapDispatchToProps = { noteUpdated }
-const mapStateToProps = state => {
-    return ({
-        note: filterNotesById(state.notes.currentNote, state.notes.notes)
-    });
-}
+    const mapDispatchToProps = { noteUpdated }
+    const mapStateToProps = state => {
+        return ({
+            note: filterNotesById(state.notes.currentNote, state.notes.notes)
+        });
+    }
 
-const Details = connect(mapStateToProps, mapDispatchToProps)(NoteDetails)
+    const Details = connect(mapStateToProps, mapDispatchToProps)(NoteDetails)
 
-export default Details;
+    export default Details;

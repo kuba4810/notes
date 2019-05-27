@@ -416,8 +416,12 @@ h1.hlogo{
     font-size: 18px;
 }
 .noteItem{
-    height : 200px;
+    height : auto;
+    width:100%;
+    padding : 10px 10px 40px 10px;
     transition: .2s ease;
+    display: block;
+    
 }
 
 .noteItemProperties{

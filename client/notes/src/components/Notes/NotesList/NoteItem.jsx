@@ -134,7 +134,7 @@ class NoteItem extends Component {
         return (
             <div className={"col-lg-4 col-md-6 mb-4 cursor-pointer animated " + this.state.animate}>
                 {/* Note  */}
-                <div className="noteItem position-relative radius-10 p-2"
+                <div className="noteItem position-relative radius-10"
                     style={style}
                     onClick={this.showDetails}>
 
@@ -145,8 +145,8 @@ class NoteItem extends Component {
                     {/* Content */}
                     <p className="contentP overflow-hidden">
                         {
-                            note.content.length > 0 ?
-                            note.content.slice(0, 50) :
+                            // note.content.length > 0 ?
+                            // note.content.slice(0, 50) :
                             note.content
                         }
                     </p>

@@ -10,23 +10,6 @@ class NoteList extends Component {
     state = {
     }
 
-    // componentDidMount = async () => {
-    //     const user_id = localStorage.getItem('id');
-
-    //     try {
-    //         const res = await fetchAllNotes(user_id);
-    //         console.log(res);
-
-    //         if (res.response === 'success') {
-    //             this.props.notesFetched(res.notes);
-    //         }
-
-    //     } catch (error) {
-    //         console.log(error);
-
-    //     }
-
-    // }
     render() {
         return (
             <div>              
