@@ -11,20 +11,46 @@ import EditLabels from './Labels/EditLabels';
 
 import { connect } from 'react-redux';
 import { fetchAllNotes } from '../../services/API/notes';
-import {getLabels} from '../../services/API/user';
+import { getLabels } from '../../services/API/user';
 
-import { notesFetched} from '../../actions/notes';
-import {labelsFetched, currentLabelChanged} from '../../actions/user';
+import { notesFetched } from '../../actions/notes';
+import { labelsFetched, currentLabelChanged } from '../../actions/user';
 
 // Services
 import history from '../../services/history';
 
 class Container extends Component {
     state = {
-        isLoading : true,
-        notes : []
+        isLoading: true,
+        notes: []
     }
 
+    showNavbar = (e) => {
+        console.log(e.target)
+        const navbar = document.querySelector('.navbarContent');
+        navbar.classList.add('navbarVisible');
+
+        e.target.classList.add('invisible');
+        e.target.classList.add('d-none');
+
+        document.querySelector('.hideNavBar').classList.remove('invisible');
+        document.querySelector('.hideNavBar').classList.remove('d-none');
+    }
+
+    hideNavBar = (e) => {
+
+        const navbar = document.querySelector('.navbarContent');
+        navbar.classList.remove('navbarVisible');
+
+        const hamb = document.querySelector('.showNavBar');
+        hamb.classList.remove('invisible');
+        hamb.classList.remove('d-none');
+
+        e.target.classList.add('invisible');
+        e.target.classList.add('d-none');
+
+       
+    }
     componentDidMount = async () => {
         const user_id = localStorage.getItem('id');
 
@@ -38,9 +64,9 @@ class Container extends Component {
 
             res = await getLabels(user_id);
 
-            console.log('Pobrane labelki : ',res);
+            console.log('Pobrane labelki : ', res);
 
-            if(res.response === 'success'){
+            if (res.response === 'success') {
                 this.props.labelsFetched(res.labels)
             }
 
@@ -51,15 +77,15 @@ class Container extends Component {
 
     }
 
-    componentWillMount(){
-        if(!localStorage.getItem('id')){
+    componentWillMount() {
+        if (!localStorage.getItem('id')) {
             history.push('/');
-        }      
+        }
     }
 
     // SHOW LABEL EDIT
     // ------------------------------------------------------------------------
-    showLabelEdit = () =>{
+    showLabelEdit = () => {
 
         let label = document.querySelector('.editLabelContainer');
 
@@ -69,70 +95,94 @@ class Container extends Component {
 
     }
 
-    
+
+
+
 
     render() {
 
         let labels = [...this.props.labels];
 
-        console.log('Labels ...',labels);
+        // console.log('Labels ...',labels);
 
-        labels = labels.map(label =>               
-                 <li className="etiquete-li" 
-                    onClick={this.props.currentLabelChanged.bind(null,label.title)}>  <i class="fas fa-bookmark mr-2"></i> {label.title} </li>  
-                 )
+        labels = labels.map(label =>
+            <li className={`etiquete-li ${this.props.label === label.title ? "activeEtuiquete" : ''}`}
+                onClick={this.props.currentLabelChanged.bind(null, label.title)}>  <i class="fas fa-bookmark mr-2"></i> {label.title} </li>
+        )
         return (
             <div className="notesContainer f-color-cornsilk">
                 <NoteDetails />
                 <Header />
                 <EditLabels />
                 <div className="row">
-                
-                    <div className="col col-3 notesNavBar d-lg-block d-none f-color-cornsilk pt-3">
 
-                        <h5>Menu</h5>
-                        <hr className="bg-light" />
-                        <ul className="mr-auto ml-auto notesMenuUl">
+                    <div className="col-lg-3 col-md-3 col-12 notesNavBar  f-color-cornsilk pt-3">
 
-                            <li onClick={this.props.currentLabelChanged.bind(null,"")}>
-                                <NavLink to={'/notatki'}exact activeClassName="activeNavLink" >
-                                    <i class="fas fa-lightbulb mr-1"></i>
-                                    Notatki
+
+
+
+                                <i class="fas fa-bars  text-light ml-1 d-lg-none d-md-block d-sm-block showNavBar cursor-pointer"  
+                                onClick={this.showNavbar}></i>
+ 
+
+
+                                <i className="fas fa-times text-light ml-1 d-lg-none hideNavBar d-none insvisible cursor-pointer"
+                                onClick={this.hideNavBar} ></i>
+
+
+
+
+                        <div className="navbarContent ">
+
+                            <h5>Menu</h5>
+
+                            <hr className="bg-light" />
+                            <ul className="mr-auto ml-auto notesMenuUl">
+
+                                <li onClick={this.props.currentLabelChanged.bind(null, "")}>
+                                    <NavLink to={'/notatki'} exact activeClassName="activeNavLink" >
+                                        <i className="fas fa-lightbulb mr-1"></i>
+                                        Notatki
                                 </NavLink>
-                            </li>
+                                </li>
 
-                            <li>
-                                <NavLink to={'/notatki/archiwum'} activeClassName="activeNavLink">
-                                    <i class="fas fa-history mr-1"></i>
-                                    Archiwum
+                                <li>
+                                    <NavLink to={'/notatki/archiwum'} activeClassName="activeNavLink">
+                                        <i className="fas fa-history mr-1"></i>
+                                        Archiwum
                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/notatki/kosz'} activeClassName="activeNavLink">
-                                    <i class="fas fa-trash-alt mr-1"></i>
-                                    Kosz
+                                </li>
+                                <li>
+                                    <NavLink to={'/notatki/kosz'} activeClassName="activeNavLink">
+                                        <i class="fas fa-trash-alt mr-1"></i>
+                                        Kosz
                                 </NavLink>
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
 
 
-                        <h5>Etykiety</h5>
-                        <hr className="bg-light" />
-                        <ul className="etiquette">
-                            <li onClick={this.showLabelEdit}>
-                                <i class="fas fa-pen mr-2"></i>  Edytuj etykiety
+                            <h5 className="pl-2">Etykiety</h5>
+                            <hr className="bg-light" />
+                            <ul className="etiquette">
+
+                                <li onClick={this.showLabelEdit}>
+                                    <i class="fas fa-pen mr-2"></i>  Edytuj etykiety
                             </li>
-                            {labels}
-                        </ul>
-                        
+                                <li className="etiquete-li" onClick={this.props.currentLabelChanged.bind(null, "")}> Wszystkie </li>
+                                {labels}
+                            </ul>
+
+                        </div>
+
 
                     </div>
 
                     <div className="notesContent col col-lg-9  m-height-100 ml-auto mr-auto f-color-dark overflow-scroll position-relative">
-                              
-                              <Route exact  path={`${this.props.match.path}`} component={NoteListContainer} />
-                              <Route  path={`${this.props.match.path}/kosz`} component={GarbageContainer} />
-                              <Route  path={`${this.props.match.path}/archiwum`} component={ArchiveContainer} />
+
+
+                        <Route exact path={`${this.props.match.path}`} component={NoteListContainer} />
+                        <Route path={`${this.props.match.path}/kosz`} component={GarbageContainer} />
+                        <Route path={`${this.props.match.path}/archiwum`} component={ArchiveContainer} />
                     </div>
                 </div>
             </div>
@@ -144,7 +194,8 @@ const mapDispatchToProps = { notesFetched, labelsFetched, currentLabelChanged };
 const mapStateToProps = state => {
     return {
         notes: state.notes,
-        labels : state.user.labels
+        labels: state.user.labels,
+        label: state.user.currentLabel
     };
 }
 

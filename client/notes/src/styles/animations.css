@@ -44,22 +44,25 @@
      opacity: 0;
     }
   }
+
+  /* Height full */
   
-  @keyframes fadeOut {
+  @keyframes heightFull {
     from {
-      opacity: 1;
+      max-height: 0;
     }
   
     to {
-      opacity: 0;
+      max-height: auto;
     }
   }
   
-  .fadeOut {
-    -webkit-animation-name: fadeOut;
-    animation-name: fadeOut;
+  .heightFull {
+    -webkit-animation-name: heightFull;
+    animation-name: heightFull;
   }
 
+  
 
   /* FadeIn Down */
   @-webkit-keyframes fadeInDown {

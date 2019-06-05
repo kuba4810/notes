@@ -4,7 +4,7 @@
 const color_signs = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
 
 export const colorMoreDark = (color,level) =>{
-    console.log('Kolor pzed zmianą :',color);
+    // console.log('Kolor pzed zmianą :',color);
     
     let signs = color.split('');
     let oldColor = color;
@@ -29,7 +29,7 @@ export const colorMoreDark = (color,level) =>{
         newColor = ['#'];
     }
 
-    console.log('Kolor po zmianie: ',oldColor);
+    // console.log('Kolor po zmianie: ',oldColor);
     return oldColor;
     
 }

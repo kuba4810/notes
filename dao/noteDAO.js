@@ -45,6 +45,14 @@ async function deleteNote(noteId){
     })
 }
 
+// Remove note from garbage
+// ----------------------------------------------
+async function removeFromGarbage(noteId){
+    return Promise.resolve().then(()=>{
+        return noteModel.findByIdAndDelete({_id : noteId},{state : 'deleted'})
+    })
+}
+
 // Archive note
 // ----------------------------------------------
 async function archiveNote(noteId){
@@ -71,11 +79,13 @@ async function updateNote(note){
     });
 }
 
+
 module.exports = {
     createNew: createNew,
     findAllByUserId: findAllByUserId,
     findNoteById : findNoteById,
     deleteNote : deleteNote,
+    removeFromGarbage : removeFromGarbage,
     updateNote : updateNote,
     archiveNote : archiveNote,
     restoreNote : restoreNote

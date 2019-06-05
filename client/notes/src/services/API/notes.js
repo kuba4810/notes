@@ -45,3 +45,25 @@ export const updateNote = async (note) =>{
     return response;
 }
 
+// Remove from garbage
+// ----------------------------------------------------------------------------
+export const removeFromGarbage = async (id) =>{
+    let response = await axios.put(`${url}/note/remove`,{
+        note_id : id
+    });
+    console.log(response);
+
+    return response;
+}
+
+// Empty garbage
+export const emptyGarbage = async (notes) =>{
+
+    console.log('Notatki : ',notes)
+    let response = await axios.post(`${url}/note/empty-garbage`,notes);
+
+    console.log(response);
+
+    return response;
+}
+

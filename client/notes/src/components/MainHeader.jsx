@@ -14,11 +14,11 @@ class MainHeader extends Component {
             <div className="row main-header  f-color-cornsilk">
                 {/* Logo */}
                 <div className="col-7">
-                    <Link class="linkToMainPage" to={'/'}>
+                    <Link className="linkToMainPage" to={'/'}>
                         <h1 className="letter-spacing-5 w-25">
                             {/* <i class="fas fa-sticky-note"></i> */}
                             {/* <i class="fas fa-tasks"></i>  */}
-                            <i class="fas fa-calendar-check"></i>
+                            <i className="fas fa-calendar-check"></i>
                             Notes
                     </h1>
                     </Link>

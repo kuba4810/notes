@@ -1,5 +1,6 @@
 // FILTER NOTES BY ID
 export const filterNotesById = (id, notes) => {
+    console.log('Szukam nowej notatki !');
     let items = notes.filter(note => note._id === id);
     return items[0];
 }
@@ -8,7 +9,7 @@ export const filterNotesById = (id, notes) => {
 // ----------------------------------------------------------------------------
 export const filterNotesByLabel = (notes, label) => {
 
-    console.log('Lista notatek : ', notes);
+    // console.log('Szukam po etykietach ', notes);
 
     // If note contains given label it is added to array and returned
     let selectedNotes = notes.filter(note => {
@@ -18,7 +19,6 @@ export const filterNotesByLabel = (notes, label) => {
 
         let labels = note.label.split(',');
 
-        console.log('Labelki : ', labels);
 
         for (let i = 0; i < labels.length; i++) {
             const el = labels[i];

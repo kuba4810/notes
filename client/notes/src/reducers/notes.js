@@ -6,7 +6,8 @@ export const notes = (state = {
     isLoading: true,
     notes: [],
     currentNote: '',
-    label: ''
+    label: '',
+    detailsVisible: false
 }, action) => {
 
     let notes;
@@ -22,15 +23,15 @@ export const notes = (state = {
                 isLoading: false
             })
 
-        // Note choosed
-        // --------------------------------------------------------------------
+            // Note choosed
+            // --------------------------------------------------------------------
         case 'NOTE_CHOOSED':
             return Object.assign({}, state, {
                 currentNote: action.id
             })
 
-        // Note updated
-        // --------------------------------------------------------------------
+            // Note updated
+            // --------------------------------------------------------------------
         case 'NOTE_UPDATED':
 
             notes = state.notes.map(n => {
@@ -56,8 +57,8 @@ export const notes = (state = {
                 notes: [...notes]
             });
 
-        // Note added
-        // --------------------------------------------------------------------
+            // Note added
+            // --------------------------------------------------------------------
         case 'NOTE_ADDED':
             notes = state.notes;
             notes.push(action.note);
@@ -66,8 +67,8 @@ export const notes = (state = {
                 notes: [...notes]
             });
 
-         // Note deleted
-         // --------------------------------------------------------------------
+            // Note deleted
+            // --------------------------------------------------------------------
         case 'NOTE_DELETED':
 
             notes = state.notes.map(note => {
@@ -84,8 +85,8 @@ export const notes = (state = {
                 notes: [...notes]
             });
 
-        // Note archived
-        // --------------------------------------------------------------------
+            // Note archived
+            // --------------------------------------------------------------------
         case 'NOTE_ARCHIVED':
 
             notes = state.notes.map(note => {
@@ -101,8 +102,8 @@ export const notes = (state = {
             return Object.assign({}, state, {
                 notes: [...notes]
             });
-        // Note archived
-        // --------------------------------------------------------------------
+            // Note archived
+            // --------------------------------------------------------------------
         case 'NOTE_RESTORED':
 
             notes = state.notes.map(note => {
@@ -118,6 +119,64 @@ export const notes = (state = {
             return Object.assign({}, state, {
                 notes: [...notes]
             });
+            // Task updated
+            // --------------------------------------------------------------------
+        case 'TASK_UPDATED':
+
+            notes = state.notes.map(note => {
+                if (action.data.note_id === note._id) {
+
+                    let tasks = note.tasks.map(task => {
+                        if (task.id === action.data.task_id) {
+                            task.done = !task.done;
+                            return task;
+                        } else {
+                            return task;
+                        }
+                    })
+
+                    note.tasks = [...tasks];
+
+                    // console.log('TASK_UPDATED', note.tasks)
+
+                    return note;
+
+                } else {
+                    return note;
+                }
+            })
+
+            return Object.assign({}, state, {
+                notes: [...notes]
+            })
+
+            // Details visibility
+            // -------------------------------------------------------------------
+        case 'DETAILS_VISIBILITY':
+            return Object.assign({}, state, {
+                detailsVisible: !state.detailsVisible
+            })
+
+        case 'EMPTY_GARBAGE':
+
+            notes = state.notes.filter(note => (
+                note.state !== 'deleted'
+            ));
+
+            return Object.assign({}, state, {
+                notes: [...notes]
+            })
+
+        case 'REMOVE_FROM_GARBAGE':
+
+            notes = state.notes.filter(note => (
+                note._id !== action.id
+            ))
+
+            return Object.assign({}, state, {
+                notes: [...notes]
+            })
+
 
         default:
             return state;

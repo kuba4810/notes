@@ -151,4 +151,52 @@ module.exports = (app) => {
         }
     });
 
+    // Empty garbage
+    // Function gets array of notes id [id-1,id-2,id-3...,id-n]
+    // --------------------------------------------------------------
+    app.post('/api/note/empty-garbage', async (request, response) => {
+
+        console.log('Notatki : ',request.body)
+
+        try {
+            
+            for (const id of request.body) {
+                
+                let res  = await noteDAO.removeFromGarbage(id);
+
+            }
+            
+            response.send({
+                response : 'success'
+            })
+
+        } catch (error) {
+            console.log(error);
+            response.send({
+                response: 'failed'
+            })
+        }
+    });
+
+    // Remove note from garbage
+    // ------------------------------------------
+    app.put('/api/note/remove', async (request, response) => {
+
+        try {
+            let note = await noteDAO.removeFromGarbage(request.body.note_id);
+
+            if (note) {
+                response.send({
+                    response: 'success',
+                    note: note
+                })
+            }
+        } catch (error) {
+            console.log(error);
+            response.send({
+                response: 'failed'
+            })
+        }
+    });
+
 }

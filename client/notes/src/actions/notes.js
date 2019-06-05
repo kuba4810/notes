@@ -46,3 +46,27 @@ export const noteRestored= (id) => ({
     id
 });
 
+// Task updated
+export const taskUpdated = (data) => ({
+    type : 'TASK_UPDATED',
+    data
+})
+
+// Details visibility changed
+export const detailsVisibility = () => ({
+    type : 'DETAILS_VISIBILITY'
+
+})
+
+// Empty garbage
+export const garbageEmpty = () => ({
+    type : 'EMPTY_GARBAGE'
+})
+
+// Remove from garbage
+export const removeNote = (id) => ({
+    type : 'REMOVE_FROM_GARBAGE',
+    id
+})
+
+

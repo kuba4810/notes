@@ -3,6 +3,7 @@ import { SketchPicker } from 'react-color'
 import { log } from 'util';
 import { connect } from 'react-redux';
 import { noteAdded } from '../../../actions/notes';
+var randomNumber = require('random-number');
 
 const state = {
     color: '#fff',
@@ -228,8 +229,14 @@ class Note extends Component {
         })
 
 
+
     }
 
+    newTaskKeyDown = (e) =>{
+        if (e.keyCode === 13) {
+            this.newTask();
+        }
+    }
     newTask = () =>{
         let task = {
             id : new Date().getTime(),
@@ -257,7 +264,8 @@ class Note extends Component {
 
         let tasks = this.state.tasks.map( (task,index)=>( 
             <div className=" tasks d-flex align-items-center mt-1">
-                <input className="mr-2 " type="checkbox" name="" id=""/>
+                {/* <input className="mr-2 " type="checkbox" name="" id=""/> */}
+                {/* <span className="checkmark"></span> */}
                 <span className="form-control">
                     {task.name}
                 </span>   
@@ -353,7 +361,7 @@ class Note extends Component {
                                     <div className="d-flex align-items-center w-100 newTask">
                                         <i className="fas fa-plus"></i>
                                         <input className="form-control" type="text" name="taskName" onChange={this.handleChange}
-                                        placeholder="Nazwa zadania" value={this.state.taskName}/>
+                                        placeholder="Nazwa zadania" value={this.state.taskName} onKeyDown={this.newTaskKeyDown}/>
                                         <i className="fas fa-check" onClick={this.newTask}></i>
 
                                     </div>

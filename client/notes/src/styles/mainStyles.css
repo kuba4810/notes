@@ -1,5 +1,5 @@
-.mainPageContainer{
-    background-image : url('../images/mainPageBackground.gif');
+.mainPageContainer {
+    background-image: url('../images/mainPageBackground.gif');
     min-height: 87vh;
     background-attachment: fixed;
 }
@@ -7,76 +7,78 @@
 /* Header */
 /* -------------------------------------- */
 
-.main-header{
-    border-bottom : 1px solid cornsilk;
+.main-header {
+    border-bottom: 1px solid cornsilk;
     font-family: 'Baloo Thambi', cursive;
     /* font-family: 'Indie Flower', cursive; */
     min-height: 8vh;
     background-color: rgb(240, 192, 0);
 }
 
-.main-header .col-5{
+.main-header .col-5 {
     justify-content: flex-end;
     align-items: center;
-    padding : 0 30px 0 0 ;
+    padding: 0 30px 0 0;
 }
 
-.main-header .col-7{
+.main-header .col-7 {
     padding: 0 0 0 70px;
 }
 
-.main-header .col-7 h1{
+.main-header .col-7 h1 {
     height: 100%;
-    display:flex;
+    display: flex;
     align-items: center;
 }
 
-.main-header a:not(.linkToMainPage){
+.main-header a:not(.linkToMainPage) {
     margin-right: 15px;
     color: cornsilk;
     font-size: 17px;
-    border : 1px solid cornsilk;
+    border: 1px solid cornsilk;
     box-shadow: 0px 0px 1px 1px cornsilk;
-    border-radius : 8px;
+    border-radius: 8px;
     padding: 5px 15px;
-    
+
 }
 
-.main-header a:not(.linkToMainPage):hover{
-    background-color: rgba(255,255,255,0.2);
+.main-header a:not(.linkToMainPage):hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-.linkToMainPage{
+.linkToMainPage {
     color: cornsilk;
 }
-.linkToMainPage:hover{
+
+.linkToMainPage:hover {
     color: cornsilk;
     text-decoration: none;
 }
 
 /* Main page content */
 /* -------------------------------------- */
-.mainPageContent{
-    width:100%;
-    min-height:100%;
-    background-color: rgba(252, 190, 3,0.7);
+.mainPageContent {
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(252, 190, 3, 0.7);
 }
 
-.mainPageContent .loginCol, .registerCol{
-    margin-top : 100px;
+.mainPageContent .loginCol,
+.registerCol {
+    margin-top: 100px;
 }
 
-.mainPageContent form.registerForm, form.loginForm, form.resetForm{
+.mainPageContent form.registerForm,
+form.loginForm,
+form.resetForm {
     box-shadow: 1px 1px 15px 0px #595959;
 }
 
-.beginButton{
-
-}
+.beginButton {}
 
 /* Footer */
 /* ---------------------------------------- */
-.footer{
+.footer {
     height: 5vh;
     background-color: #151515;
 }
@@ -84,42 +86,42 @@
 
 /* Welcome page */
 
-.welcomePage h1{
+.welcomePage h1 {
     font-size: 50px;
 }
 
-h1.hlogo{
+h1.hlogo {
     font-size: 70px;
 }
 
-.welcomePage a{
+.welcomePage a {
     color: #262626;
     font-size: 17px;
-    border : 2px solid #fff;
+    border: 2px solid #fff;
     padding: 10px 20px;
-    border-radius : 8px;
+    border-radius: 8px;
     background-color: #fff;
     width: 200px;
     text-align: center;
 
 }
 
-.welcomeSection{
+.welcomeSection {
     background-image: url('../images/mainSectionBackground.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    height:90vh;
-    width:70%;
+    height: 90vh;
+    width: 70%;
     margin-top: 30px;
-    margin-left:auto;
-    margin-right:auto;
-   
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
-.betweenSection{
-    min-height:50vh;
-    background-color: rgba(255,255,255,0.8);
+.betweenSection {
+    min-height: 50vh;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 /* Notes container */
@@ -128,79 +130,107 @@ h1.hlogo{
 /* ---------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------- */
 
-.notesNavBar{
-    background-color: #1D1D1D;
+.navbarContent{
+    display: block;
+    transform-origin: top;
+    transition: 0.26s ease;
 }
+
+.showNavBar, .hideNavBar{
+    font-size: 30px;
+}
+.navbarVisible{
+    transform: scaleY(1) !important;
+    height:auto !important;
+}
+.notesNavBar {
+    background-color: #1D1D1D;
+    /* color: #262626 !important; */
+    transition:.3s ease;
+    
+}
+
 .notesContainer {
     /* min-height : 100vh; */
-    padding:0;
+    padding: 0;
 }
-.notesContainer .row .notesNavBar{
-    min-height: 85vh;
+
+.notesContainer .row .notesNavBar {
+    height: auto;
 }
 
 
-.menu{
+.menu {
     font-size: 18px;
-    height:8vh;
+    height: 8vh;
     /* border-bottom: 1px solid cornsilk; */
     /* padding-left:60px; */
     background-color: #2D2D2D;
 }
 
-.menu a{
+.menu a {
     transition: .3s ease;
     /* width:180px !important; */
 }
-.menu a:hover{
+
+.menu a:hover {
     /* border-bottom : 1px solid cornsilk; */
     text-decoration: none;
     color: gold;
     /* background-color: rgba(255,255,255,0.7); */
 }
 
-.notesNavBar ul, ul.etiquette{
+.notesNavBar ul,
+ul.etiquette {
     text-decoration: none;
     list-style-type: none;
-    padding-left:5px;
-    padding-bottom:5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
     /* max-height : 40vh; */
     /* overflow : auto; */
- 
+
 }
 
 /* .notesContainer ul li:not(.labelPromptList ul li) , */
 .notesMenuUl li,
- ul.etiquette li {
-    border-radius : 5px;
-    transition : .3s ease;
-    margin-bottom : 10px;
-    display:flex;
+ul.etiquette li {
+    border-radius: 5px;
+    transition: .3s ease;
+    margin-bottom: 10px;
+    display: flex;
     align-items: center;
 }
-.notesNavBar ul li a , ul.etiquette li {
-    border-radius : 5px;
-    transition : .3s ease;
-    cursor:pointer;
+
+.notesNavBar ul li a,
+ul.etiquette li {
+    border-radius: 5px;
+    transition: .3s ease;
+    cursor: pointer;
     font-size: 20px;
     padding: 10px 32px;
-    width:100% !important;
+    width: 100% !important;
 }
 
-.notesNavBar ul li a, ul.etiquette li {
-  color: cornsilk;
-  width:100%;
-  height:100%;
-} 
+.notesNavBar ul li a,
+ul.etiquette li {
+    color: cornsilk;
+    width: 100%;
+    height: 100%;
+}
 
-.notesNavBar ul li a:hover , ul.etiquette li:hover{
-    background-color: rgba(255,255,255,0.7);
+.notesNavBar ul li a:hover,
+ul.etiquette li:hover {
+    background-color: rgba(255, 255, 255, 0.7);
     color: #262626;
     text-decoration: none;
 }
 
-.activeNavLink{
+.activeNavLink {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+.activeEtuiquete{
+    background-color: rgba(255,255,0,0.2);
 }
 
 
@@ -209,202 +239,210 @@ h1.hlogo{
 /* ---------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------- */
-
-.newNoteForm{
+.newNoteForm .tasks span{
+    background-color: rgba(255,255,255,0);
+    border-radius : 0;
+}
+.newNoteForm {
     border-radius: 10px;
-    box-shadow : 0px 0px 5px 2px #262626;
+    box-shadow: 0px 0px 5px 2px #262626;
     padding: 5px;
-    transition : .3s ease;
+    transition: .3s ease;
 }
 
-.newNoteForm input,textarea{
-    border:none !important;
+.newNoteForm input,
+textarea {
+    border: none !important;
     outline: none;
     box-shadow: none;
-    background-color: rgba(255,255,255,0);
+    background-color: rgba(255, 255, 255, 0);
 }
 
-.newNoteForm textarea{
-    background-color: rgba(255,255,255,0);
+.newNoteForm textarea {
+    background-color: rgba(255, 255, 255, 0);
 }
 
 
 
-.newNoteForm input:focus, .newNoteForm textarea:focus{
-    box-shadow:none;
-    background-color: rgba(255,255,255,0);
+.newNoteForm input:focus,
+.newNoteForm textarea:focus {
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0);
 }
 
-.newNoteForm .fas{
+.newNoteForm .fas {
     cursor: pointer;
 }
 
-.labelForm{
-    box-shadow : 0px 0px 1px  #262626;
+.labelForm {
+    box-shadow: 0px 0px 1px #262626;
 }
 
-.single-label{
+.single-label {
     display: inline-block;
     font-size: 10px;
     /* background-color: rgb(146, 141, 141); */
 }
 
-.color-picker ,.labelForm{
-    z-index : 100;
+.color-picker,
+.labelForm {
+    z-index: 100;
 }
 
-.note-content{
+.note-content {
     white-space: pre-line;
     white-space: pre-wrap;
 }
 
-.contentP, .detailsContent{
+.contentP,
+.detailsContent {
     white-space: pre-line;
     white-space: pre-wrap;
-    max-height : 40%;
+    /* max-height : 40%; */
 }
 
-.colorPickerCOntainer{
-   
-}
-.colorPicker{
-    display:grid;
-    grid-template-columns: repeat(4,1fr);
-    box-shadow : 0px 0px 3px #262626;
-   
+.colorPickerCOntainer {}
+
+.colorPicker {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    box-shadow: 0px 0px 3px #262626;
+
 }
 
-.color{
+.color {
 
-    margin:5px;
-    width:30px;
-    height:30px;
+    margin: 5px;
+    width: 30px;
+    height: 30px;
     background-color: red;
-    border-radius : 50%;
-    cursor:pointer;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-#c-ffffff{
+#c-ffffff {
     background-color: #fff;
-    border:1px solid #bfbfbf;
+    border: 1px solid #bfbfbf;
 
 }
 
-#c-dedede{
+#c-dedede {
     background-color: #dedede;
-    border:1px solid #999999;
+    border: 1px solid #999999;
 
 }
-#c-c8ec7f{
+
+#c-c8ec7f {
     background-color: #c8ec7f;
-    border:1px solid #8fc81e;
+    border: 1px solid #8fc81e;
 }
 
-#c-f4b82d{
+#c-f4b82d {
     background-color: #f4b82d;
-    border:1px solid #c28b0a;
+    border: 1px solid #c28b0a;
 }
 
-#c-f68b8b{
+#c-f68b8b {
     background-color: #f68b8b;
-    border:1px solid #f35959;
+    border: 1px solid #f35959;
 }
 
-#c-fbf37d{
+#c-fbf37d {
     background-color: #fbf37d;
-    border:1px solid #f8ea20;
+    border: 1px solid #f8ea20;
 }
-#c-97ffe6{
+
+#c-97ffe6 {
     background-color: #97ffe6;
-    border:1px solid #00cc9c;
+    border: 1px solid #00cc9c;
 }
 
-#c-3dd8b5{
+#c-3dd8b5 {
     background-color: #3dd8b5;
-    border:1px solid #1d9579;
+    border: 1px solid #1d9579;
 }
 
-#c-d7aefb{
+#c-d7aefb {
     background-color: #d7aefb;
-    border:1px solid #b76df8;
+    border: 1px solid #b76df8;
 }
 
-#c-fdcfe8{
+#c-fdcfe8 {
     background-color: #fdcfe8;
-    border:1px solid #fb9dd1;
+    border: 1px solid #fb9dd1;
 }
 
-#c-e6c9a8{
+#c-e6c9a8 {
     background-color: #e6c9a8;
-    border:1px solid #ddb588;
+    border: 1px solid #ddb588;
 }
 
-#c-e8eaed{
+#c-e8eaed {
     background-color: #e8eaed;
-    border:1px solid #b8bec7;
+    border: 1px solid #b8bec7;
 }
 
-.etiquete-li{
-    padding-left:50px !important;
-    margin-top:5px !important;
+.etiquete-li {
+    padding-left: 50px !important;
+    margin-top: 5px !important;
 }
 
-.labelPrompt{
-    min-height : 100px;
-    width : 100%;
+.labelPrompt {
+    min-height: 100px;
+    width: 100%;
     background-color: cornsilk;
-    box-shadow : 0px 0px 3px 1px #262626;
-    border : none;
+    box-shadow: 0px 0px 3px 1px #262626;
+    border: none;
 }
 
-.labelPrompt ul{
-  
-}
+.labelPrompt ul {}
 
-.labelPromptList{
-    padding-left:0;
+.labelPromptList {
+    padding-left: 0;
     list-style-type: none;
     padding: 10px 0px;
 }
 
-.labelPromptList li{
+.labelPromptList li {
     text-align: left;
-    margin-bottom:3px;
-    cursor:pointer;
+    margin-bottom: 3px;
+    cursor: pointer;
     /* background-color: silver; */
-    padding-left:10px;
-    width:100%;
+    padding-left: 10px;
+    width: 100%;
 
 }
 
-.newTask{
-    border-bottom:1px solid gray;
+.newTask {
+    border-bottom: 1px solid gray;
     border-top: 1px solid gray;
 }
 
 
- .tasks span{
-    border:none;
-    background-color: rgba(0,0,0,0);
-}
-.tasks input[type="checkbox"]{
-    cursor:pointer;
-}
-.tasks input[type="text"]{
-    cursor:pointer;
-    background-color: rgba(0,0,0,0);
-    border:none;
-    cursor:text;
+.tasks span {
+    border: none;
+    /* background-color: rgba(0, 0, 0, 0); */
 }
 
-.tasks input:focus{
-    background-color: rgba(0,0,0,0);
-    box-shadow : none;
-    border:none;
+.tasks input[type="checkbox"] {
+    cursor: pointer;
 }
 
-.tasks i{
-    cursor:pointer;
+.tasks input[type="text"] {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    /* cursor: text; */
+}
+
+.tasks input:focus {
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+    border: none;
+}
+
+.tasks i {
+    cursor: pointer;
 }
 
 /* NOTE ITEM */
@@ -412,50 +450,128 @@ h1.hlogo{
 /* ---------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------- */
-.fa-tag{
+
+.tasks{
+    position: relative;
+}
+
+/* Hide the browser's default checkbox */
+.tasks input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    cursor:pointer;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  /* .checkmark:hover {
+    background-color: #ccc;
+  } */
+  
+  /* When the checkbox is checked, add a blue background */
+  .tasks input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display:block;
+  }
+  .checkmarkChecked{
+    background-color: #2196F3;
+  }
+  .checkmarkChecked:after{
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: #2196F3;
+  }
+  /* Show the checkmark when checked */
+  .tasks input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .tasks .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  
+.fa-tag {
     font-size: 18px;
 }
-.noteItem{
-    height : auto;
-    width:100%;
-    padding : 10px 10px 40px 10px;
+
+.noteItem {
+    height: auto;
+    width: 100%;
+    padding: 10px 10px 40px 10px;
     transition: .2s ease;
     display: block;
-    
+    cursor: pointer;
+
 }
 
-.noteItemProperties{
-    opacity:0;
-    transition : .5s ease;
-}
-
-.noteItem:hover{
-    box-shadow : 0px 0px 5px 1px  #595959;
+.firstNotesColumn,
+.secondNotesColumn,
+.thirdNotesColumn {
+    height: auto;
 }
 
 
-.noteItem:hover .noteItemProperties{
-    opacity:1;
+.noteItemProperties {
+    opacity: 0;
+    transition: .5s ease;
 }
-.noteItem .fas{
+
+.noteItem:hover {
+    box-shadow: 0px 0px 5px 1px #595959;
+}
+
+
+.noteItem:hover .noteItemProperties {
+    opacity: 1;
+}
+
+.noteItem .fas {
     cursor: pointer;
 }
 
-.deleteItem{
+.deleteItem {
     position: absolute;
-    bottom : 10px;
+    bottom: 10px;
     right: 10px;
 }
 
-.archiveItem{
+.archiveItem {
     position: absolute;
-    bottom : 10px;
+    bottom: 10px;
     right: 30px;
 }
 
-.restoreItem{
+.restoreItem {
     position: absolute;
-    bottom : 10px;
+    bottom: 10px;
     right: 60px;
 }
 
@@ -464,39 +580,61 @@ h1.hlogo{
 /* ---------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------- */
+
+
+.noteDetailContent,
+ .detailsTitle,
+ .detailsTitle:focus{
+background-color: rgba(255,255,255,0);
+}
+
+.detailsTitle{
+    box-shadow:none;
+}
+
+.detailsTitle:focus{
+    border:none;
+    box-shadow:none;
+}
+
+.detailsTitle{
+    border:none;
+    box-shadow:none;
+}
 .noteDetails {
     position: fixed;
-    width:100%;
-    height:100vh;
-    top:0;
-    left:0;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
     background-color: rgba(192, 188, 188, 0.8);
     z-index: 101;
     animation-duration: .1s !important;
-    overflow:hidden;
-    margin:0;
+    overflow: hidden;
+    margin: 0;
     padding: 0;
-    
+
 }
 
-.noteDetailsContent{
+.noteDetailsContent {
     animation-duration: .3s;
+    min-height:50%;
     /* height:30%; */
     /* top:20%; */
-   
+
     /* width:50%;  
        
     */
     /* left:5%;  */
     background-color: cornsilk;
-    box-shadow : 0px 0px 5px 0px #262626;
-    border-radius:10px;
+    box-shadow: 0px 0px 5px 0px #262626;
+    border-radius: 10px;
 }
 
-.noteDetails textarea{
-    width:100%;
-    background-color: #fff;
- 
+.noteDetails textarea {
+    width: 100%;
+    /* background-color: #fff; */
+
 }
 
 /* EDIT LABELS */
@@ -505,95 +643,102 @@ h1.hlogo{
 /* ---------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------- */
 
-.editLabelContainer{
-    position : fixed;
-    width:100%;
+.editLabelContainer {
+    position: fixed;
+    width: 100%;
     height: 100vh;
-    top : 0;
-    left:0;
-    background-color: rgba(63,63,63,0.5);
-    z-index : 9999999999;
-    margin : 0;
+    top: 0;
+    left: 0;
+    background-color: rgba(63, 63, 63, 0.5);
+    z-index: 9999999999;
+    margin: 0;
     animation-duration: .5s;
-    
+
 }
 
-.editLabelContent{
+.editLabelContent {
     background-color: cornsilk;
-    padding : 10px;
-    box-shadow : 1px 1px 5px #262626;
-    position : relative;
-    top : 20%;
-     max-height : 70vh; 
-    overflow: auto; 
+    padding: 10px;
+    box-shadow: 1px 1px 5px #262626;
+    position: relative;
+    top: 20%;
+    max-height: 70vh;
+    overflow: auto;
 }
 
 
 /* width */
 .editLabelContent::-webkit-scrollbar {
     width: 5px;
-  }
-  
-  /* Track */
-  .editLabelContent::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-  }
-  
-  /* Handle */
-  .editLabelContent::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  /* Handle on hover */
-  .editLabelContent::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+}
 
-.newLabel input, .editLabelInput{
-    
-    border-top : none;
-    border-left : none;
-    border-right : none;
+/* Track */
+.editLabelContent::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.editLabelContent::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.editLabelContent::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.newLabel input,
+.editLabelInput {
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
     background-color: cornsilk;
 }
 
-.newLabel input:focus, .editLabelInput{
-    box-shadow : none;
-    outline : none;
+.newLabel input:focus,
+.editLabelInput {
+    box-shadow: none;
+    outline: none;
 }
 
-.newLabel input{
-    width : 85%;
-    border-bottom : 1px solid #a3a1a1;
+.newLabel input {
+    width: 85%;
+    border-bottom: 1px solid #a3a1a1;
 }
-.editLabelContent i{
+
+.editLabelContent i {
     cursor: pointer;
 }
-.editLabelList .fa-check{
-    display : none;
+
+.editLabelList .fa-check {
+    display: none;
 }
 
-.editLabelInput{
-    border : none;
-    
-}
-
-.editLabelInput:focus{
-    border-bottom : 1px solid #a3a1a1;
+.editLabelInput {
+    border: none;
 
 }
 
-.editLabelInput{
-    width:80%;
+.editLabelInput:focus {
+    border-bottom: 1px solid #a3a1a1;
+
 }
-.editLabelInput:focus ~ .fa-pen{
-    display : none;
+
+.editLabelInput {
+    width: 80%;
 }
-.editLabelInput:focus ~ .fa-check{
-    display : inline-block;
+
+.editLabelInput:focus~.fa-pen {
+    display: none;
 }
-.editLabelsList .fa-check{
-    display : none;
+
+.editLabelInput:focus~.fa-check {
+    display: inline-block;
+}
+
+.editLabelsList .fa-check {
+    display: none;
 }
 
 /* TOOL TIP */
@@ -604,11 +749,11 @@ h1.hlogo{
 .tip {
     position: relative;
     display: inline-block;
-    z-index : 1000;
-    
-  }
-  
-  .tip .tooltiptext {
+    z-index: 1000;
+
+}
+
+.tip .tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: #262626;
@@ -621,26 +766,41 @@ h1.hlogo{
     bottom: 150%;
     left: 50%;
     margin-left: -60px;
-    opacity:0;
-    transition:.3s ease;
-  }
-    
-  .tip:hover .tooltiptext {
+    opacity: 0;
+    transition: .3s ease;
+}
+
+.tip:hover .tooltiptext {
     visibility: visible;
-    opacity:1;
-  }
+    opacity: 1;
+}
 
-  .tipLeft{
+.tipLeft {
     left: -150% !important;
-  }
+}
 
-  @media only screen and (max-width: 1100px) {
-    .notesNavBar ul li a, ul.etiquette li{
+@media only screen and (max-width: 768px) {
+
+    /* .notesNavBar{
+        min-height:auto !important;
+    } */
+
+    .navbarContent{
+        transform: scaleY(0);
+        height:0;
+        
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+
+    .notesNavBar ul li a,
+    ul.etiquette li {
         font-size: 15px;
     }
-  }
+}
 
-  /* @media only screen and (max-width: 992px) {
+/* @media only screen and (max-width: 992px) {
     .notesContent {
       min-height : 85vh;
     }

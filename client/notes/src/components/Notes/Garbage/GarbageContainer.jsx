@@ -8,6 +8,16 @@ class GarbageContainer extends Component {
     render() { 
         return ( 
             <div className="pt-4">
+
+                <h5 className="text-center">
+                    <em>Notatki są usuwane z kosza po siedmiu dniach.</em>
+
+                    {/* <div className="emptyGarbage text-primary">
+                        Opróżnij kosz
+                    </div> */}
+
+                </h5>
+
                 <List noteType="deleted" />
             </div>
          );
